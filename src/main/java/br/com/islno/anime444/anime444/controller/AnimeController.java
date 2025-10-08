@@ -1,5 +1,6 @@
 package br.com.islno.anime444.anime444.controller;
 
+import br.com.islno.anime444.anime444.dto.JikanResponseDto;
 import br.com.islno.anime444.anime444.service.JikanService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,8 @@ public class AnimeController {
     }
 
     @GetMapping("/buscar")
-    public String buscarAnime(@RequestParam String titulo){
+   public JikanResponseDto buscar(@RequestParam String titulo) {
         return jikanService.buscarAnimePorTitulo(titulo);
-        
     }
 
 }
