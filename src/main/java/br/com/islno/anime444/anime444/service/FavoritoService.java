@@ -2,7 +2,6 @@ package br.com.islno.anime444.anime444.service;
 
 import br.com.islno.anime444.anime444.dto.AnimeDto;
 import br.com.islno.anime444.anime444.model.AnimeFavorito;
-// CORREÇÃO 1: Importe o REPOSITÓRIO, não o modelo
 import br.com.islno.anime444.anime444.repository.AnimeFavoritoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +32,9 @@ public class FavoritoService {
 
 
         return repository.save(novoFavorito);
+    }
+    public void deletar (Long id){
+     repository.deleteById(id);
     }
 
 

@@ -40,4 +40,10 @@ public class AnimeController {
 
         return favoritoService.listarTodos();
     }
+
+    @DeleteMapping("/favoritos/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarFavorito(@PathVariable Long id){
+        favoritoService.deletar(id);
+    }
 }
