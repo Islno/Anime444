@@ -17,5 +17,8 @@ public class AnimeFavorito {
     private String imageUrl;
     private Double score;
 
+    @Column(columnDefinition = "TEXT")
+    private String comentario;
+
 
 }

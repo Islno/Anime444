@@ -6,6 +6,7 @@ import br.com.islno.anime444.anime444.repository.AnimeFavoritoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
 @Service
@@ -33,10 +34,19 @@ public class FavoritoService {
 
         return repository.save(novoFavorito);
     }
+
     public void deletar (Long id){
      repository.deleteById(id);
     }
 
+    public AnimeFavorito atualizarComentario(Long id, String comentario){
+        AnimeFavorito animeParaAtualizar = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Anime não encontrado com o id: " + id));
+
+        animeParaAtualizar.setComentario(comentario);
+
+        return repository.save(animeParaAtualizar);
+    }
 
     public List<AnimeFavorito> listarTodos(){
         return repository.findAll();

@@ -9,6 +9,7 @@ import br.com.islno.anime444.anime444.model.AnimeFavorito;
 import br.com.islno.anime444.anime444.service.FavoritoService;
 import org.springframework.http.HttpStatus;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/animes")
@@ -45,5 +46,13 @@ public class AnimeController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarFavorito(@PathVariable Long id){
         favoritoService.deletar(id);
+    }
+
+    @PatchMapping("/favoritos/{id}")
+    public AnimeFavorito atualizarComentario(
+        @PathVariable Long id,
+        @RequestBody Map<String, String> payload) {
+     String comentario = payload.get("comentario");
+     return favoritoService.atualizarComentario(id, comentario);
     }
 }
