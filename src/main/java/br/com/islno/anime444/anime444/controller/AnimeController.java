@@ -2,6 +2,7 @@ package br.com.islno.anime444.anime444.controller;
 
 import br.com.islno.anime444.anime444.dto.JikanResponseDto;
 import br.com.islno.anime444.anime444.service.JikanService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import br.com.islno.anime444.anime444.dto.AnimeDto;
@@ -32,7 +33,7 @@ public class AnimeController {
 
     @PostMapping("/favoritar")
     @ResponseStatus(HttpStatus.CREATED)
-    public AnimeFavorito favoritar(@RequestBody AnimeDto animeDto){
+    public AnimeFavorito favoritar(@Valid @RequestBody AnimeDto animeDto){
         return favoritoService.favoritar(animeDto);
     }
 
